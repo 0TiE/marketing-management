@@ -1,0 +1,36 @@
+.productcard{
+    width: 15rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dropdownbtn{
+    background-color: #fff;
+    width: 15rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-icon{
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pencil-icon{
+    margin-left: 10px;
+}
+
+.prodetails-badge{
+    background-color: #e7e7e7;
+    padding: 2px 20px; 
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paddcard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
