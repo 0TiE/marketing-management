@@ -240,7 +240,7 @@ function ProductManagement() {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="productName" className="form-label">Product Name</label>
-                      <input type="text" className="form-control" id="productName" />
+                      <input type="text" className="form-control" id="productName" required/>
                     </div>
                     <div className="mb-3">
                       <select className="form-select" id="productCategory">
@@ -252,11 +252,11 @@ function ProductManagement() {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="productDescription" className="form-label">Description</label>
-                      <textarea className="form-control" id="productDescription" rows="3"></textarea>
+                      <textarea className="form-control" id="productDescription" rows="3" required></textarea>
                     </div>
                     <div className="mb-3">
-                      <label htmlFor="productImage" className="form-label">Link</label>
-                      <input type="text" className="form-control" id="productImage" />
+                      <label htmlFor="productlink" className="form-label">Link</label>
+                      <input type="text" className="form-control" id="productlink" required/>
                     </div>
                   </form>
                 </div>
@@ -336,7 +336,7 @@ function ProductManagement() {
                   <h5>General Information</h5>
                   <div className="mt-4">
                     <div className="d-flex flex-wrap">
-                      <span className="badge partnerbadge text-dark m-1 mb-3">Product ID</span>
+                      <span className="badge partnerbadge text-dark m-1 mb-3" id="product_id">Product ID</span>
                     </div>
                   </div>
                   <form>
@@ -399,7 +399,7 @@ function ProductManagement() {
               </div>
             </div>
             <div className="modal-footer text-end">
-              <button type="submit" className="btn btn-primary">Update Product</button>
+              <button type="submit" className="btn btn-primary" id='btn-update'>Update Product</button>
             </div>
           </div>
         </div>

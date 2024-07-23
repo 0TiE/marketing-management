@@ -29,7 +29,7 @@ function PartnerManagement() {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h5 class="card-title">New Requests</h5>
                   <form class="form-inline d-flex my-2 my-lg-0">
-                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control mr-2" id='search' type="search" placeholder="Search" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
@@ -47,78 +47,87 @@ function PartnerManagement() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal" onclick="loadModalContent(this)">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal" >
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
-                      <tr data-bs-toggle="modal" data-bs-target="#requestModal">
+                      <tr>
                         <td>R001</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
                         <td>Test</td>
-                        <td><button class="btn btn-primary">Assign</button></td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
                       </tr>
+                      <tr>
+                        <td>R001</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td><button class="btn btn-primary" id='btn-assign' data-bs-toggle="modal" data-bs-target="#exampleModal">Assign</button></td>
+                      </tr>
+                      
                     </tbody>
                   </table>
                 </div>
@@ -132,7 +141,7 @@ function PartnerManagement() {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h5 class="card-title">Approved Requests</h5>
                   <form class="form-inline d-flex my-2 my-lg-0">
-                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control mr-2" id='search-approved' type="search" placeholder="Search" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
@@ -245,7 +254,7 @@ function PartnerManagement() {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h5 class="card-title">Rejected Requests</h5>
                   <form class="form-inline d-flex my-2 my-lg-0">
-                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control mr-2" id='search-reject' type="search" placeholder="Search" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
@@ -373,7 +382,7 @@ function PartnerManagement() {
                           </div>
                           <div className="mb-3">
                             <label htmlFor="phonenumber" className="form-label">Phone Number</label>
-                            <input type="text" className="form-control" id="phonenum" required/>
+                            <input type="number" className="form-control" id="phonenum" required/>
                           </div>
                           <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
@@ -387,8 +396,8 @@ function PartnerManagement() {
                   
                 </div>
                 <div className="modal-footer text-end">
-                  <button type="submit" className="btn btn-primary" data-bs-target="#passwordModal" data-bs-toggle="modal" data-bs-dismiss="modal">Approve</button>
-                  <button type="submit" className="btn btn-danger" data-bs-target="#rejectModal" data-bs-toggle="modal" data-bs-dismiss="modal"> Reject</button>
+                  <button type="submit" className="btn btn-primary" id='btn-approve' data-bs-target="#passwordModal" data-bs-toggle="modal" data-bs-dismiss="modal">Approve</button>
+                  <button type="submit" className="btn btn-danger" id='btn-reject' data-bs-target="#rejectModal" data-bs-toggle="modal" data-bs-dismiss="modal"> Reject</button>
                 </div>
               </div>
             </div>
@@ -407,7 +416,7 @@ function PartnerManagement() {
                                   <label for="password" class="form-label">Password</label>
                                   <input type="password" class="form-control" id="password" required/>
                               </div>
-                              <button type="submit" class="btn btn-primary">Approve</button>
+                              <button type="submit" class="btn btn-primary" id='button-approve'>Approve</button>
                           </form>
                       </div>
                   </div>
@@ -427,7 +436,7 @@ function PartnerManagement() {
                                   <label for="rejectionComment" class="form-label">Comment</label>
                                   <textarea class="form-control" id="rejectionComment" rows="3" required></textarea>
                               </div>
-                              <button type="submit" class="btn btn-danger">Reject</button>
+                              <button type="submit" class="btn btn-danger" id='button-reject'>Reject</button>
                           </form>
                       </div>
                   </div>

@@ -19,7 +19,7 @@ function VendorManagement() {
           <div className="mt-4">
             <div className="mt-4">
               <div className="d-flex flex-wrap">
-                <button className="btn btn-primary text-light m-1 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add New Vendor <i className="fa fa-plus-circle"></i></button>
+                <button className="btn btn-primary text-light m-1 mb-3" id='btn_addvendor' data-bs-toggle="modal" data-bs-target="#exampleModal1">Add New Vendor <i className="fa fa-plus-circle"></i></button>
               </div>
             </div>
             
@@ -133,25 +133,25 @@ function VendorManagement() {
                   <div class="col-lg-6">
                     <div className="mt-4">
                       <div className="d-flex flex-wrap">
-                        <span className="badge partnerbadge text-dark m-1 mb-3">Vendor ID</span>
+                        <span className="badge partnerbadge text-dark m-1 mb-3" id='vendor-id'>Vendor ID</span>
                       </div>
                     </div>
                     <form>
                       <div className="mb-3">
-                        <label htmlFor="productName" className="form-label">Vendor Name</label>
-                        <input type="text" className="form-control" id="productName" required/>
+                        <label htmlFor="vendorName" className="form-label">Vendor Name</label>
+                        <input type="text" className="form-control" id="vendorName" required/>
                       </div>
                       <div className="mb-3">
                         <label htmlFor="vendorEmail" className="form-label">Email</label>
                         <input type="email" className="form-control" id="vendoremail" required/>
                       </div>
                       <div className="mb-3">
-                        <label htmlFor="productDescription" className="form-label">Description</label>
-                        <textarea className="form-control" id="productDescription" rows="3" required></textarea>
+                        <label htmlFor="vendorDescription" className="form-label">Description</label>
+                        <textarea className="form-control" id="vendorDescription" rows="3" required></textarea>
                       </div>
 
                       
-                        <label htmlFor="productDescription" className="form-label mb-3">Pillars</label>
+                        <label htmlFor="pillars" className="form-label mb-3">Pillars</label>
                         <div class="d-flex justify-content-between flex-wrap mb-3">
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
@@ -196,7 +196,7 @@ function VendorManagement() {
                   <div class="col-lg-5">
                     <input
                       type="file"
-                      id="productImage"
+                      id="vendorImage"
                       name="productImage"
                       accept="image/*"
                       multiple
@@ -216,15 +216,15 @@ function VendorManagement() {
                       </div>
                     )}
                       <div className="mb-3">
-                        <label htmlFor="productImage" className="form-label">WebLink</label>
-                        <input type="text" className="form-control" id="productImage" required/>
+                        <label htmlFor="vendorlink" className="form-label">WebLink</label>
+                        <input type="text" className="form-control" id="vendorlink" required/>
                       </div>
                       <div className="mb-3">
-                        <label htmlFor="productName" className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" id="productName" required/>
+                        <label htmlFor="phonenumber" className="form-label">Phone Number</label>
+                        <input type="number" className="form-control" id="phonenumber" required/>
                       </div>
                       <div className="mb-3">
-                        <select className="form-select" id="productCategory" required>
+                        <select className="form-select" id="tax" required>
                           <option selected>Select TAX Register Status</option>
                           <option value="1">Status 1</option>
                           <option value="2">Status 2</option>
@@ -240,7 +240,7 @@ function VendorManagement() {
               
             </div>
             <div className="modal-footer text-end">
-              <button type="submit" className="btn btn-primary">Update Vendor</button>
+              <button type="submit" className="btn btn-primary" id='btn_update'>Update Vendor</button>
             </div>
           </div>
         </div>
@@ -260,25 +260,25 @@ function VendorManagement() {
                   <div class="col-lg-6">
                     <div className="mt-4">
                       <div className="d-flex flex-wrap">
-                        <span className="badge partnerbadge text-dark m-1 mb-3">Vendor ID</span>
+                        <span className="badge partnerbadge text-dark m-1 mb-3" id='vendor_id'>Vendor ID</span>
                       </div>
                     </div>
                     <form>
                       <div className="mb-3">
-                        <label htmlFor="productName" className="form-label">Vendor Name</label>
-                        <input type="text" className="form-control" id="productName" required/>
+                        <label htmlFor="vendorName" className="form-label">Vendor Name</label>
+                        <input type="text" className="form-control" id="vendorName" required/>
                       </div>
                       <div className="mb-3">
                         <label htmlFor="vendorEmail" className="form-label">Email</label>
                         <input type="email" className="form-control" id="vendoremail" required/>
                       </div>
                       <div className="mb-3">
-                        <label htmlFor="productDescription" className="form-label">Description</label>
-                        <textarea className="form-control" id="productDescription" rows="3"></textarea>
+                        <label htmlFor="Description" className="form-label">Description</label>
+                        <textarea className="form-control" id="Description" rows="3"></textarea>
                       </div>
 
                       
-                        <label htmlFor="productDescription" className="form-label mb-3">Pillars</label>
+                        <label htmlFor="pillars" className="form-label mb-3">Pillars</label>
                         <div class="d-flex justify-content-between flex-wrap mb-3">
                           <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
@@ -343,15 +343,15 @@ function VendorManagement() {
                       </div>
                     )}
                       <div className="mb-3">
-                        <label htmlFor="productImage" className="form-label">WebLink</label>
-                        <input type="text" className="form-control" id="productImage" />
+                        <label htmlFor="link" className="form-label">WebLink</label>
+                        <input type="text" className="form-control" id="link" />
                       </div>
                       <div className="mb-3">
-                        <label htmlFor="productName" className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" id="productName" />
+                        <label htmlFor="number" className="form-label">Phone Number</label>
+                        <input type="number" className="form-control" id="number" />
                       </div>
                       <div className="mb-3">
-                        <select className="form-select" id="productCategory">
+                        <select className="form-select" id="tax">
                           <option selected>Select TAX Register Status</option>
                           <option value="1">Status 1</option>
                           <option value="2">Status 2</option>
@@ -367,7 +367,7 @@ function VendorManagement() {
               
             </div>
             <div className="modal-footer text-end">
-              <button type="submit" className="btn btn-primary">Register Vendor</button>
+              <button type="submit" className="btn btn-primary" id='btn_reg'>Register Vendor</button>
             </div>
           </div>
         </div>
