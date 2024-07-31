@@ -1,0 +1,45 @@
+/* VerticalNavbar.css */
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.navbar-container.expanded {
+  width: 250px;
+}
+
+.navbar-container.collapsed {
+  width: 80px;
+}
+
+.navbar-container .vertical-navbar {
+  height: 100%;
+}
+
+.navbar-container .nav-text {
+  display: none;
+}
+
+.navbar-container.expanded .nav-text {
+  display: inline;
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.navbar-container.collapsed ~ .main-content {
+  margin-left: 80px;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
