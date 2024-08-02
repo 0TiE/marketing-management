@@ -1,0 +1,248 @@
+
+  .partnermgt .tabs {
+    display: flex;
+    justify-content: start;
+    
+  }
+  
+  .partnermgt .tab {
+    padding: 10px 20px;
+    border: 2px solid #16796F;
+    color: #000000;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: #f8f9fa;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    outline: none;
+    margin: 0 10px 0 0  ;
+  }
+  
+  .partnermgt .tab.active {
+    background-color: #16796F;
+    color: white;
+  }
+
+  .tbl-container{
+    width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  }
+
+  .tab-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .search-bar1 {
+    width: 300px;
+    padding: 10px 40px 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.clear-search-btn1 {
+  position: absolute;
+  right: -142px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #020069;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ffffff;
+}
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    border-radius: 8px;
+  }
+  
+  table thead {
+    position: sticky;
+    top: 0;
+    color: #ffffff;
+    z-index: 1;
+  }
+  
+  table thead tr {
+    background-color: #16796F;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+table th, table td {
+    padding: 12px 15px;
+  }
+  
+ table th {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  
+ table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+table a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+table a:hover {
+    text-decoration: underline;
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: #f4f4f4;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #020069;
+    border-radius: 20px;
+    border: 3px solid #f4f4f4;
+  }
+  
+  .modal {
+    display: block; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    animation: slideIn 0.5s;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal .close {
+  float: right;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  margin-top: -136px;
+  margin-left: -59px;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  background-color: #fff;
+}
+
+.form-label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus + .form-label, .form-control:not(:placeholder-shown) + .form-label {
+  top: -20px;
+  left: 10px;
+  font-size: 12px;
+  color: #010133;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.btn{
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.btn-green{
+  background-color: #16796F;
+}
+
+.btn-green:hover{
+  background-color: #16796F;
+  color: #fff;
+}
+
+.btn-red{
+  background-color: rgb(255, 0, 0);
+}
+
+.btn-red:hover{
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+}
