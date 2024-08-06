@@ -198,6 +198,7 @@ const Product = () => {
                   onChange={handleProductChange} 
                 />
                 <label className="form-label">Vendor</label>
+                
               </div>
               <div className="form-group my-5">
                 <input 
