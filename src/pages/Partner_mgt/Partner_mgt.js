@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import './Partner_mgt.css';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa'; // Import icons for sorting arrows
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa'; 
 
 const Partner_mgt = () => {
   const [showModal, setShowModal] = useState(false);
