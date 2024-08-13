@@ -1,0 +1,38 @@
+.modal-content2 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  position: relative;
+  max-width: 80%;
+  margin-top: 45%;
+}
+
+.modal .progress-bar {
+  margin: 20px 0;
+}
+
+.modal .progress {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal .progress-step {
+  width: 10%;
+  height: 15px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.modal .progress-step.active {
+  background-color: #010133;
+}
+
+.modal .progress-step::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: transparent; 
+}

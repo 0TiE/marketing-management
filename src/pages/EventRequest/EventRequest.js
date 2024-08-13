@@ -3,7 +3,6 @@ import Header from '../../components/Header/Header';
 import './EventRequest.css';
 
 const EventRequest = () => {
-  const [activeTab, setActiveTab] = useState('requested');
   const [showModal, setShowModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [isApproveModalOpen, setApproveModalOpen] = useState(false);
@@ -41,25 +40,26 @@ const EventRequest = () => {
   };
 
   const data = [
-    { id: 'Event Req1', name: 'Name1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com' },
-    { id: 'Event Req2', name: 'Name2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com' },
-    { id: 'Event Req3', name: 'Name3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com' },
-    { id: 'Event Req4', name: 'Name4', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com' },
-    { id: 'Event Req5', name: 'Name4', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com' },
-    { id: 'Event Req6', name: 'Name5', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com' },
-    { id: 'Event Req7', name: 'Name6', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com' },
-    { id: 'Event Req8', name: 'Name7', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com' },
-    { id: 'Event Req9', name: 'Name8', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com' },
-    { id: 'Event Req10', name: 'Name9', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com' },
-    { id: 'Event Req11', name: 'Name10', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com' },
-    { id: 'Event Req12', name: 'Name11', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com' },
+    { id: 'Event Req1', name: 'Name1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
+    { id: 'Event Req2', name: 'Name2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
+    { id: 'Event Req3', name: 'Name3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
+    { id: 'Event Req4', name: 'Name4', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
+    { id: 'Event Req5', name: 'Name4', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
+    { id: 'Event Req6', name: 'Name5', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
+    { id: 'Event Req7', name: 'Name6', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
+    { id: 'Event Req8', name: 'Name7', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
+    { id: 'Event Req9', name: 'Name8', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
+    { id: 'Event Req10', name: 'Name9', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
+    { id: 'Event Req11', name: 'Name10', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
+    { id: 'Event Req12', name: 'Name11', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
   ];
 
   const filteredData = data.filter(
     row =>
       row.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
       row.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      row.brNumber.toLowerCase().includes(searchTerm.toLowerCase())
+      row.brNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      row.status.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -69,18 +69,15 @@ const EventRequest = () => {
         <div className="col-lg-11">
           <Header />
           <div className='partnermgt mt-5'>
-            <div className='tab-search'>
-              <div className="tabs">
-                  <button className={`tab ${activeTab === 'requested' ? 'active' : ''}`} onClick={() => setActiveTab('requested')}>REQUESTED</button>
-                  <button className={`tab ${activeTab === 'approved' ? 'active' : ''}`} onClick={() => setActiveTab('approved')}>APPROVED</button>
-                  <button className={`tab ${activeTab === 'rejected' ? 'active' : ''}`} onClick={() => setActiveTab('rejected')}>REJECTED</button>
+            <div className="row mb-3">
+              <div className="col-lg-6">
+                <h3>Event Requests</h3>
               </div>
-              <div className='search'>
                 <div className="col-lg-6 search-bar-container">
                   <input 
                     type="text" 
-                    placeholder="Search by Event ID, Name, BR Number" 
-                    className="search-bar1" 
+                    placeholder="Search by Event ID, Name, BR Number, Status" 
+                    className="search-bar" 
                     value={searchTerm} 
                     onChange={(e) => setSearchTerm(e.target.value)} 
                   />
@@ -88,127 +85,54 @@ const EventRequest = () => {
                     <button className="clear-search-btn1" onClick={clearSearch}>×</button>
                   )}
                 </div>
-              </div>
             </div>
-            <div className="tab-content">
-              {activeTab === 'requested' && (
-                <div className="tab-pane fade show active" id="requested">
-                  <div className='tbl-container'>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Event REQ ID</th>
-                          <th>NAME</th>
-                          <th>BR NUMBER</th>
-                          <th>PHONE</th>
-                          <th>EMAIL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filteredData.map(row => (
-                          <tr key={row.id} onClick={() => handleRowClick(row)}>
-                            <td>{row.id}</td>
-                            <td>{row.name}</td>
-                            <td>{row.brNumber}</td>
-                            <td>{row.phone}</td>
-                            <td>{row.email}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-              {activeTab === 'approved' && (
-                <div className="tab-pane fade show active" id="approved">
-                  <div className='tbl-container'>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Event REQ ID</th>
-                          <th>NAME</th>
-                          <th>BR NUMBER</th>
-                          <th>PHONE</th>
-                          <th>EMAIL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filteredData.map(row => (
-                          <tr key={row.id}>
-                            <td>{row.id}</td>
-                            <td>{row.name}</td>
-                            <td>{row.brNumber}</td>
-                            <td>{row.phone}</td>
-                            <td>{row.email}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-              {activeTab === 'rejected' && (
-                <div className="tab-pane fade show active" id="rejected">
-                  <div className='tbl-container'>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Event REQ ID</th>
-                          <th>NAME</th>
-                          <th>BR NUMBER</th>
-                          <th>PHONE</th>
-                          <th>EMAIL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filteredData.map(row => (
-                          <tr key={row.id}>
-                            <td>{row.id}</td>
-                            <td>{row.name}</td>
-                            <td>{row.brNumber}</td>
-                            <td>{row.phone}</td>
-                            <td>{row.email}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
+            <div className='tbl-container'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>EVENT REQ ID</th>
+                    <th>NAME</th>
+                    <th>BR NUMBER</th>
+                    <th>PHONE</th>
+                    <th>EMAIL</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredData.map(row => (
+                    <tr key={row.id} onClick={() => handleRowClick(row)}>
+                      <td>{row.id}</td>
+                      <td>{row.name}</td>
+                      <td>{row.brNumber}</td>
+                      <td>{row.phone}</td>
+                      <td>{row.email}</td>
+                      <td className={`badge badge-${row.status.toLowerCase()}`}>{row.status}</td>
+                      
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+        <div className='col-lg-1'></div>
       </div>
 
-      {selectedRow && showModal && (
-        <div className="modal">
-          <div className="modal-content">
+      {showModal && selectedRow && (
+        <div className="modal" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
+              <h2>Event Request Details</h2>
               <span className="close" onClick={handleCloseModal}>&times;</span>
-              <h2>Request Details</h2>
             </div>
-            <form>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.id} readOnly />
-                <label className="form-label">Event REQ ID</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.name} readOnly />
-                <label className="form-label">NAME</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.brNumber} readOnly />
-                <label className="form-label">BR NUMBER</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.phone} readOnly />
-                <label className="form-label">PHONE</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.email} readOnly />
-                <label className="form-label">EMAIL</label>
-              </div>
-            </form>
+            <div className="modal-body">
+              <p><strong>Event Request ID:</strong> {selectedRow.id}</p>
+              <p><strong>Name:</strong> {selectedRow.name}</p>
+              <p><strong>BR Number:</strong> {selectedRow.brNumber}</p>
+              <p><strong>Phone:</strong> {selectedRow.phone}</p>
+              <p><strong>Email:</strong> {selectedRow.email}</p>
+              <p><strong>Status:</strong> {selectedRow.status}</p>
+            </div>
             <div className="modal-footer">
               <button className="btn btn-green" onClick={handleApproveClick}>Approve</button>
               <button className="btn btn-red" onClick={handleRejectClick}>Reject</button>
@@ -218,41 +142,37 @@ const EventRequest = () => {
       )}
 
       {isApproveModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" onClick={handleCloseApproveModal}>
+          <div className="modal-content3" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
+              <h2>Confirm Approval</h2>
               <span className="close" onClick={handleCloseApproveModal}>&times;</span>
-              <h2>Approve Request</h2>
             </div>
-            <form>
-              <div className="form-group my-5">
-                <input type="password" className="form-control" placeholder="" required/>
-                <label className="form-label">Password</label>
-              </div>
-              <div className="modal-footer">
-                <button className="btn btn-green" type="submit">Approve</button>
-              </div>
-            </form>
+            <div className="modal-body">
+              <p>Are you sure you want to approve this event request?</p>
+            </div>
+            <div className="modal-footer">
+              <button className="btn btn-green">Yes</button>
+              <button className="btn btn-red" onClick={handleCloseApproveModal}>No</button>
+            </div>
           </div>
         </div>
       )}
 
       {isRejectModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" onClick={handleCloseRejectModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
+              <h2>Confirm Rejection</h2>
               <span className="close" onClick={handleCloseRejectModal}>&times;</span>
-              <h2>Reject Request</h2>
             </div>
-            <form>
-              <div className="form-group my-5">
-                <textarea className="form-control" placeholder="" required></textarea>
-                <label className="form-label">Reason for rejection</label>
-              </div>
-              <div className="modal-footer">
-                <button className="btn btn-red" type="submit">Reject</button>
-              </div>
-            </form>
+            <div className="modal-body">
+              <p>Are you sure you want to reject this event request?</p>
+            </div>
+            <div className="modal-footer">
+              <button className="btn btn-green">Yes</button>
+              <button className="btn btn-red" onClick={handleCloseRejectModal}>No</button>
+            </div>
           </div>
         </div>
       )}

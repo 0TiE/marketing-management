@@ -2,25 +2,10 @@
   .partnermgt .tabs {
     display: flex;
     justify-content: start;
-    
   }
   
-  .partnermgt .tab {
-    padding: 10px 20px;
-    border: 2px solid #16796F;
-    color: #000000;
-    font-weight: 600;
-    letter-spacing: 1px;
-    background-color: #f8f9fa;
-    border-radius: 10px 10px 0 0;
-    cursor: pointer;
-    outline: none;
-    margin: 0 10px 0 0  ;
-  }
-  
-  .partnermgt .tab.active {
-    background-color: #16796F;
-    color: white;
+  .partnermgt h3{
+    font-weight: 700;
   }
 
   .tbl-container{
@@ -246,3 +231,27 @@ table a:hover {
   background-color: rgb(255, 0, 0);
   color: #fff;
 }
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.badge-requested {
+  background-color: blue;
+}
+
+.badge-approved {
+  background-color: green;
+}
+
+.badge-rejected {
+  background-color: red;
+}
+
+.sort-arrow {
+  margin-left: 5px; 
+}
+

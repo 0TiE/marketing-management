@@ -1,70 +1,160 @@
-import React from 'react';
-import companylogo from '../../images/company logo.png'
-import './NavBar.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import companylogo from "../../images/CONNEX.png";
+import connexcodeworks from "../../images/connexcodeworks.png";
+import "./NavBar.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { NavLink } from "react-router-dom";
 
-const VerticalNavbar = ({ activeLinkId }) => {
-    return (
-        
-        <div className="navbar-container bg-light ">
-            <div className="vertical-navbar d-flex flex-column flex-shrink-0 p-3 bg-light">
-                <div className='row d-flex justify-content-between align-items-center'>
-                    <i className="bi bi-list ms-3 menu-icon"></i>
-                    <img src={companylogo} alt="Connex Logo" className='logo'/>
-                </div> 
-                <hr />  
-                <ul className="nav nav-pills flex-column mb-auto">
-                    <li>
-                        <Link to="/dashboard" className={`nav-link ${activeLinkId === 'dashboard' ? 'active' : ''}`} id="dashboard" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Dashboard">
-                            <i className="bi bi-speedometer2"></i> <span className="nav-text">Dashboard</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/partnermgt" className={`nav-link ${activeLinkId === 'partnermgt' ? 'active' : ''}`} id="partnermgt">
-                            <i className="bi bi-people"></i> <span className="nav-text">Partner Management</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/Product" className={`nav-link ${activeLinkId === 'product_request' ? 'active' : ''}`} id="product_request">
-                            <i className="bi bi-box-seam"></i> <span className="nav-text">Product Management</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/priceplan" className={`nav-link ${activeLinkId === 'priceplan' ? 'active' : ''}`} id="priceplan">
-                            <i className="bi bi-currency-dollar"></i> <span className="nav-text">Pricing Plan</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/mdf" className={`nav-link ${activeLinkId === 'mdf' ? 'active' : ''}`} id="mdf">
-                            <i className="bi bi-cash-stack"></i> <span className="nav-text">MDF</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/categorymgt" className={`nav-link ${activeLinkId === 'categorymgt' ? 'active' : ''}`} id="categorymgt">
-                            <i className="bi bi-grid-3x3-gap"></i> <span className="nav-text">Category Management</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/vendormgt" className={`nav-link ${activeLinkId === 'vendormgt' ? 'active' : ''}`} id="vendormgt">
-                            <i className="bi bi-briefcase"></i> <span className="nav-text">Vendor Management</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/creditrequest" className={`nav-link ${activeLinkId === 'creditrequest' ? 'active' : ''}`} id="creditrequest">
-                            <i className="bi bi-credit-card"></i> <span className="nav-text">Credit Request</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/eventtrequest" className={`nav-link ${activeLinkId === 'eventtrequest' ? 'active' : ''}`} id="eventtrequest">
-                            <i class="bi bi-person-arms-up"></i> <span className="nav-text">Event Request</span>
-                        </Link>
-                    </li>
-                </ul>
-                
-            </div>
+const Navbar = () => {
+  const [showMDF, setShowMDF] = useState(false);
+
+  const toggleMDF = () => {
+    setShowMDF(!showMDF);
+  };
+
+  return (
+    <div className="navbar-container bg-light">
+      {/* Header */}
+      <div className="vertical-navbar d-flex flex-column flex-shrink-0 p-3 bg-light">
+        <div className="row">
+          <i className="bi bi-list ms-3 menu-icon"></i>
+          <img src={companylogo} alt="Connex Logo" className="logo" />
         </div>
-    );
-}
+        <hr />
+        <div className="nav-container">
+          <ul className="nav nav-pills flex-column mb-auto">
+            <li className="mb-1">
+              <NavLink
+                to="/dashboard"
+                className="nav-link"
+                activeClassName="active"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Dashboard"
+              >
+                <i className="bi bi-speedometer2"></i>{" "}
+                <span className="nav-text">Dashboard</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/partnermgt"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-people"></i>{" "}
+                <span className="nav-text">Partner Management</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/Product"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-box-seam"></i>{" "}
+                <span className="nav-text">Product Management</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/priceplan"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-currency-dollar"></i>{" "}
+                <span className="nav-text">Pricing Plan</span>
+              </NavLink>
+            </li>
+            {/* MDF Section */}
+            <li className="mb-1">
+              <div
+                className="nav-link mdf-toggle"
+                onClick={toggleMDF}
+                style={{ cursor: "pointer" }}
+              >
+                <i className="bi bi-cash-stack"></i>{" "}
+                <span className="nav-text">MDF</span>
+              </div>
+              {showMDF && (
+                <ul className="nav flex-column ms-3">
+                  <li className="mb-1">
+                    <NavLink
+                      to="internalmdf"
+                      className="nav-link"
+                      activeClassName="active"
+                    ><i className="bi bi-cash-stack"></i>
+                      Internal MDF
+                    </NavLink>
+                  </li>
+                  <li className="mb-1">
+                    <NavLink
+                      to="partnermdf"
+                      className="nav-link"
+                      activeClassName="active"
+                    ><i className="bi bi-cash-stack"></i>
+                      Partner MDF
+                    </NavLink>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/categorymgt"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-grid-3x3-gap"></i>{" "}
+                <span className="nav-text">Category Management</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/vendormgt"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-briefcase"></i>{" "}
+                <span className="nav-text">Vendor Management</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/creditrequest"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-credit-card"></i>{" "}
+                <span className="nav-text">Credit Request</span>
+              </NavLink>
+            </li>
+            <li className="mb-1">
+              <NavLink
+                to="/eventtrequest"
+                className="nav-link"
+                activeClassName="active"
+              >
+                <i className="bi bi-person-arms-up"></i>{" "}
+                <span className="nav-text">Event Request</span>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        {/* Footer */}
+        <footer className="fixed-bottom text-center fc text-white p-2 bg-dark">
+          <img
+            src={connexcodeworks}
+            className="logo2 fixed-bottom"
+            alt="Connex Code Works Logo"
+          />
+          Designed and Developed by{" "}
+          <strong>CODE-WORKS Software Engineer Team</strong> © 2024 Connex
+          Information Technologies (PVT) LTD
+        </footer>
+      </div>
+    </div>
+  );
+};
 
-export default VerticalNavbar;
+export default Navbar;

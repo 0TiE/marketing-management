@@ -85,9 +85,7 @@ const Vendor_mgt = () => {
           <div className='mt-5'>
             <div className="row mb-3">
               <div className="col-lg-6">
-                <button className="add-product-btn" onClick={handleAddVendor}>
-                  <i className="fas fa-plus"></i> ADD VENDOR
-                </button>
+                <h3>Vendor Management</h3>
               </div>
               <div className="col-lg-6 search-bar-container">
                 <input 
@@ -102,6 +100,9 @@ const Vendor_mgt = () => {
                 )}
               </div>
             </div>
+            <button className="add-product-btn mb-3" onClick={handleAddVendor}>
+                  <i className="fas fa-plus"></i> ADD VENDOR
+            </button>
             <div className="row">
               <div className="table-container">
                 <table className="styled-table">

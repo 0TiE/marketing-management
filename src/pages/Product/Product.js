@@ -121,9 +121,7 @@ const Product = () => {
           <div className='mt-5'>
             <div className="row mb-3">
               <div className="col-lg-6">
-                <button className="add-product-btn" onClick={() => setIsModalOpen(true)}>
-                  <i className="fas fa-plus"></i> ADD PRODUCT
-                </button>
+                  <h3>Product Management</h3>
               </div>
               <div className="col-lg-6 search-bar-container">
                 <input 
@@ -138,6 +136,9 @@ const Product = () => {
                 )}
               </div>
             </div>
+            <button className="add-product-btn mb-3" onClick={() => setIsModalOpen(true)}>
+                  <i className="fas fa-plus"></i> ADD PRODUCT
+                </button>
             <div className="row">
               <div className="table-container">
                 <table className="styled-table">

@@ -109,9 +109,7 @@ const Category_mgt = () => {
           <div className='mt-5'>
             <div className="row mb-3">
               <div className="col-lg-6">
-                <button className="add-category-btn" onClick={openModal}>
-                  <i className="fas fa-plus"></i> ADD CATEGORY
-                </button>
+                    <h3>Category Management</h3>
               </div>
               <div className="col-lg-6 search-bar-container">
                 <input 
@@ -126,6 +124,9 @@ const Category_mgt = () => {
                 )}
               </div>
             </div>
+            <button className="add-category-btn mb-3" onClick={openModal}>
+                  <i className="fas fa-plus"></i> ADD CATEGORY
+            </button>
             <div className="row">
               <div className="table-container">
                 <table className="styled-table">

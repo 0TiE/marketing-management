@@ -7,30 +7,67 @@
     box-shadow: 0 0.125rem 0.375rem 0 rgba(161, 172, 184, 0.12);
 }
 
-.navbar-container .logo{
+.navbar-container .logo {
+    display: none;
+    width: auto;
+    height: 80px;
+}
+
+.navbar-container .logo2 {
     display: none;
     width: auto;
     height: 80px;
 }
 
 .navbar-container:hover {
-    width: 280px; 
+    width: 280px;
 }
 
-.navbar-container:hover .logo{
+.navbar-container:hover .logo {
     display: block;
     justify-content: center;
     align-items: center;
+    height: 50px;
+    width: 250px;
 }
 
-.navbar-container:hover .menu-icon{
+.navbar-container:hover .logo2 {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 150px;
+    margin-left: 30px;
+}
+
+.navbar-container:hover .menu-icon {
     display: none;
 }
 
 .vertical-navbar {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     transition: width 0.3s;
+}
+
+.nav-container {
+    flex-grow: 1;
+    /* overflow-y: auto; */
+}
+
+.nav-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.nav-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.nav-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
 .vertical-navbar .nav-link {
@@ -62,18 +99,18 @@
     background-color: #010133 !important;
 }
 
-.nav-link.active {
-    background-color: #007bff;
-    color: white;
-}
-
-
 .nav-link {
     color: #fff;
+    text-decoration: none;
 }
 
 .nav-link:hover {
     background-color: #e9ecef;
+}
+
+.nav-link:active {
+    background-color: #fff; 
+    color: #000;
 }
 
 .bi {
@@ -81,10 +118,18 @@
     color: #fff;
 }
 
-.nav-link:hover .bi{
+.nav-link:hover .bi {
     color: #000;
 }
 
-.nav-link:hover .link{
+.nav-link:hover .link {
     color: #000;
+}
+
+.logo {
+    height: 150px;
+}
+
+footer{
+    font-size: 12px;
 }
