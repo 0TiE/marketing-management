@@ -119,7 +119,7 @@ const Navbar = () => {
                 <span className="nav-text">Vendor Management</span>
               </NavLink>
             </li>
-            <li className="mb-1">
+            {/* <li className="mb-1">
               <NavLink
                 to="/creditrequest"
                 className="nav-link"
@@ -128,7 +128,7 @@ const Navbar = () => {
                 <i className="bi bi-credit-card"></i>{" "}
                 <span className="nav-text">Credit Request</span>
               </NavLink>
-            </li>
+            </li> */}
             <li className="mb-1">
               <NavLink
                 to="/eventtrequest"
@@ -142,12 +142,12 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Footer */}
-        <footer className="fixed-bottom text-center fc text-white p-2 bg-dark">
-          <img
+        <footer className="fixed-bottom text-center fc text-white p-2">
+          {/* <img
             src={connexcodeworks}
             className="logo2 fixed-bottom"
             alt="Connex Code Works Logo"
-          />
+          /> */}
           Designed and Developed by{" "}
           <strong>CODE-WORKS Software Engineer Team</strong> © 2024 Connex
           Information Technologies (PVT) LTD

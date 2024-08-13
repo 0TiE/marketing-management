@@ -4,8 +4,8 @@ import './Vendor_mgt.css';
 
 const Vendor_mgt = () => {
   const [vendors, setVendors] = useState([
-    { id: '1', logo: 'logo1.png', name: 'Vendor One', email: 'vendor1@example.com' },
-    { id: '2', logo: 'logo2.png', name: 'Vendor Two', email: 'vendor2@example.com' },
+    { id: '1', logo: 'logo1.png', name: 'Vendor One', email: 'vendor1@example.com', status: 'Available' },
+    { id: '2', logo: 'logo2.png', name: 'Vendor Two', email: 'vendor2@example.com', status: 'Not Available' },
   ]);
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +15,8 @@ const Vendor_mgt = () => {
     id: '',
     logo: '',
     name: '',
-    email: ''
+    email: '',
+    status: 'Available' // Default status
   });
 
   const clearSearch = () => {
@@ -37,13 +38,9 @@ const Vendor_mgt = () => {
     setShowModal(true);
   };
 
-  const handleDelete = (id) => {
-    setVendors(vendors.filter(vendor => vendor.id !== id));
-  };
-
   const handleAddVendor = () => {
     const nextId = (vendors.length + 1).toString();
-    setNewVendor({ id: nextId, logo: '', name: '', email: '' });
+    setNewVendor({ id: nextId, logo: '', name: '', email: '', status: 'Available' });
     setCurrentVendor(null);
     setShowModal(true);
   };
@@ -51,7 +48,7 @@ const Vendor_mgt = () => {
   const closeModal = () => {
     setShowModal(false);
     setShowViewModal(false);
-    setNewVendor({ id: '', logo: '', name: '', email: '' });
+    setNewVendor({ id: '', logo: '', name: '', email: '', status: 'Available' });
     setCurrentVendor(null);
   };
 
@@ -112,6 +109,7 @@ const Vendor_mgt = () => {
                       <th>VENDOR LOGO</th>
                       <th>VENDOR NAME</th>
                       <th>EMAIL</th>
+                      <th>STATUS</th>
                       <th>ACTION</th>
                     </tr>
                   </thead>
@@ -122,9 +120,11 @@ const Vendor_mgt = () => {
                         <td><img src={vendor.logo} alt={vendor.name} className="vendor-logo" /></td>
                         <td>{vendor.name}</td>
                         <td>{vendor.email}</td>
+                        <td className={vendor.status === 'Available' ? 'status-available' : 'status-not-available'}>
+                          {vendor.status}
+                        </td>
                         <td className="action-icons">
                           <i className="fas fa-edit editicon" onClick={(e) => { e.stopPropagation(); handleEdit(vendor); }}></i>
-                          <i className="fas fa-trash trashicon" onClick={(e) => { e.stopPropagation(); handleDelete(vendor.id); }}></i>
                         </td>
                       </tr>
                     ))}
@@ -181,6 +181,18 @@ const Vendor_mgt = () => {
                 />
                 <label className="form-label">Email</label>
               </div>
+              <div className="form-group my-5">
+                <select 
+                  className="form-control" 
+                  name="status" 
+                  value={newVendor.status} 
+                  onChange={handleVendorChange}
+                >
+                  <option value="Available">Available</option>
+                  <option value="Not Available">Not Available</option>
+                </select>
+                <label className="form-label">Status</label>
+              </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-green">{currentVendor ? 'Save Changes' : 'Add Vendor'}</button>
               </div>
@@ -231,12 +243,21 @@ const Vendor_mgt = () => {
                 />
                 <label className="form-label">Email</label>
               </div>
+              <div className="form-group my-5">
+                <input 
+                  type="text" 
+                  className="form-control" 
+                  value={currentVendor.status} 
+                  readOnly 
+                />
+                <label className="form-label">Status</label>
+              </div>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default Vendor_mgt;

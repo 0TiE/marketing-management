@@ -167,7 +167,7 @@
   width: 500px;
   position: relative;
   max-width: 80%;
-  margin-top: 40%;
+  margin-top: 20%;
 }
 
 .product-image {
@@ -192,4 +192,15 @@
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+}
+
+/* Add these styles to your CSS file or within a <style> tag in your component */
+.status-available {
+  color: green;
+  font-weight: bold;
+}
+
+.status-not-available {
+  color: red;
+  font-weight: bold;
 }

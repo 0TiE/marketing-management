@@ -40,18 +40,9 @@ const EventRequest = () => {
   };
 
   const data = [
-    { id: 'Event Req1', name: 'Name1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
-    { id: 'Event Req2', name: 'Name2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
-    { id: 'Event Req3', name: 'Name3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
-    { id: 'Event Req4', name: 'Name4', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
-    { id: 'Event Req5', name: 'Name4', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
-    { id: 'Event Req6', name: 'Name5', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
-    { id: 'Event Req7', name: 'Name6', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
-    { id: 'Event Req8', name: 'Name7', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
-    { id: 'Event Req9', name: 'Name8', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
-    { id: 'Event Req10', name: 'Name9', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'Requested' },
-    { id: 'Event Req11', name: 'Name10', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'Approved' },
-    { id: 'Event Req12', name: 'Name11', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'Rejected' },
+    { id: 'Event Req1', name: 'Name1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'event1@gmail.com', status: 'Requested' },
+    { id: 'Event Req2', name: 'Name2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'event2@gmail.com', status: 'Approved' },
+    { id: 'Event Req3', name: 'Name3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'event3@gmail.com', status: 'Rejected' },
   ];
 
   const filteredData = data.filter(

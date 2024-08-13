@@ -36,3 +36,8 @@
   transform: translateX(-50%);
   color: transparent; 
 }
+
+.action-btn{
+  border: none;
+  background-color: transparent;
+}

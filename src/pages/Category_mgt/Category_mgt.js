@@ -4,14 +4,14 @@ import './Category_mgt.css';
 
 const Category_mgt = () => {
   const [categories, setCategories] = useState([
-    { id: 1, name: 'Electronics', specification: 'Various electronic items' },
-    { id: 2, name: 'Furniture', specification: 'Home and office furniture' },
+    { id: 1, name: 'Electronics', specification: 'Various electronic items', status: 'Available' },
+    { id: 2, name: 'Furniture', specification: 'Home and office furniture', status: 'Not Available' },
   ]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCategories, setFilteredCategories] = useState(categories);
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
-  const [newCategory, setNewCategory] = useState({ id: '', name: '', specifications: [] });
+  const [newCategory, setNewCategory] = useState({ id: '', name: '', specifications: [], status: 'Available' });
   const [currentSpecification, setCurrentSpecification] = useState('');
   const [editingCategory, setEditingCategory] = useState(null);
   const [viewCategory, setViewCategory] = useState(null);
@@ -35,24 +35,21 @@ const Category_mgt = () => {
       id: category.id,
       name: category.name,
       specifications: category.specification.split(', '),
+      status: category.status,
     });
     setShowModal(true);
   };
 
-  const handleDelete = (categoryId) => {
-    setCategories(categories.filter(category => category.id !== categoryId));
-  };
-
   const openModal = () => {
     const maxId = categories.reduce((max, category) => (category.id > max ? category.id : max), 0);
-    setNewCategory({ id: maxId + 1, name: '', specifications: [] });
+    setNewCategory({ id: maxId + 1, name: '', specifications: [], status: 'Available' });
     setShowModal(true);
     setEditingCategory(null);
   };
 
   const closeModal = () => {
     setShowModal(false);
-    setNewCategory({ id: '', name: '', specifications: [] });
+    setNewCategory({ id: '', name: '', specifications: [], status: 'Available' });
     setCurrentSpecification('');
   };
 
@@ -77,14 +74,15 @@ const Category_mgt = () => {
     if (editingCategory) {
       setCategories(categories.map(category => 
         category.id === editingCategory.id 
-          ? { ...category, name: newCategory.name, specification: newCategory.specifications.join(', ') } 
+          ? { ...category, name: newCategory.name, specification: newCategory.specifications.join(', '), status: newCategory.status } 
           : category
       ));
     } else {
       setCategories([...categories, { 
         id: newCategory.id, 
         name: newCategory.name, 
-        specification: newCategory.specifications.join(', ') 
+        specification: newCategory.specifications.join(', '),
+        status: newCategory.status 
       }]);
     }
     closeModal();
@@ -109,7 +107,7 @@ const Category_mgt = () => {
           <div className='mt-5'>
             <div className="row mb-3">
               <div className="col-lg-6">
-                    <h3>Category Management</h3>
+                <h3>Category Management</h3>
               </div>
               <div className="col-lg-6 search-bar-container">
                 <input 
@@ -125,7 +123,7 @@ const Category_mgt = () => {
               </div>
             </div>
             <button className="add-category-btn mb-3" onClick={openModal}>
-                  <i className="fas fa-plus"></i> ADD CATEGORY
+              <i className="fas fa-plus"></i> ADD CATEGORY
             </button>
             <div className="row">
               <div className="table-container">
@@ -135,6 +133,7 @@ const Category_mgt = () => {
                       <th>ID</th>
                       <th>CATEGORY NAME</th>
                       <th>SPECIFICATION</th>
+                      <th>STATUS</th>
                       <th>ACTION</th>
                     </tr>
                   </thead>
@@ -144,9 +143,11 @@ const Category_mgt = () => {
                         <td>{category.id}</td>
                         <td>{category.name}</td>
                         <td>{category.specification}</td>
+                        <td className={category.status === 'Available' ? 'status-available' : 'status-not-available'}>
+                          {category.status}
+                        </td>
                         <td className="action-icons">
                           <i className="fas fa-edit editicon" onClick={(e) => { e.stopPropagation(); handleEdit(category); }}></i>
-                          <i className="fas fa-trash trashicon" onClick={(e) => { e.stopPropagation(); handleDelete(category.id); }}></i>
                         </td>
                       </tr>
                     ))}
@@ -204,6 +205,16 @@ const Category_mgt = () => {
                   </div>
                 ))}
               </div>
+              <div className="form-group my-5">
+                <select 
+                  className="form-control" 
+                  value={newCategory.status} 
+                  onChange={(e) => setNewCategory({ ...newCategory, status: e.target.value })}>
+                  <option value="Available">Available</option>
+                  <option value="Not Available">Not Available</option>
+                </select>
+                <label className="form-label">Status</label>
+              </div>
             </form>
             <div className="modal-footer">
               <button className="btn btn-green" onClick={handleSaveCategory}>
@@ -230,12 +241,13 @@ const Category_mgt = () => {
                   <li key={index}>{spec}</li>
                 ))}
               </ul>
+              <p><strong>Status:</strong> {viewCategory.status}</p>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default Category_mgt;

@@ -11,9 +11,9 @@ const Partner_mgt = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
   const [data, setData] = useState([
-    { id: 'Req1', name: 'TrendNet', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'requested' },
-    { id: 'Req2', name: 'TechCorp', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'approved' },
-    { id: 'Req3', name: 'InnoTech', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'rejected' },
+    { id: 'Req1', name: 'Name 1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'requested' },
+    { id: 'Req2', name: 'Name 2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'approved' },
+    { id: 'Req3', name: 'Name 3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'rejected' },
   ]);
 
   const handleRowClick = (row) => {

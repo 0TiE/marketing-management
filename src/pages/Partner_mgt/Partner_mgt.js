@@ -11,9 +11,9 @@ const Partner_mgt = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
   const [data, setData] = useState([
-    { id: 'Req1', name: 'TrendNet', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'trendnet@gmail.com', status: 'requested' },
-    { id: 'Req2', name: 'TechCorp', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'techcorp@gmail.com', status: 'approved' },
-    { id: 'Req3', name: 'InnoTech', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'innotech@gmail.com', status: 'rejected' },
+    { id: 'Req1', name: 'Partner Name 1', brNumber: 'BR001', phone: '+94 11 1122 112', email: 'partner1@gmail.com', status: 'requested' },
+    { id: 'Req2', name: 'Partner Name 2', brNumber: 'BR002', phone: '+94 11 1122 113', email: 'partner2@gmail.com', status: 'approved' },
+    { id: 'Req3', name: 'Partner Name 3', brNumber: 'BR003', phone: '+94 11 1122 114', email: 'partner3@gmail.com', status: 'rejected' },
   ]);
 
   const handleRowClick = (row) => {
@@ -122,7 +122,7 @@ const Partner_mgt = () => {
                           {sortConfig.key === 'id' && (sortConfig.direction === 'asc' ? <FaArrowUp className="sort-arrow" /> : <FaArrowDown className="sort-arrow" />)}
                         </th>
                         <th onClick={() => handleSort('name')}>
-                          NAME
+                          PARTNER NAME
                           {sortConfig.key === 'name' && (sortConfig.direction === 'asc' ? <FaArrowUp className="sort-arrow" /> : <FaArrowDown className="sort-arrow" />)}
                         </th>
                         <th onClick={() => handleSort('brNumber')}>
@@ -173,29 +173,48 @@ const Partner_mgt = () => {
               <h2>Request Details</h2>
             </div>
             <form>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.id} readOnly />
-                <label className="form-label">REQ ID</label>
+              <div className='row d-flex'>
+                <div className='col-lg-6'>
+                  <div className="form-group my-5">
+                    <input type="text" className="form-control" value={selectedRow.id} readOnly />
+                    <label className="form-label">REQ ID</label>
+                  </div>
+                </div>
+                <div className='col-lg-6'>
+                  <div className="form-group my-5">
+                    <input type="text" className="form-control" value={selectedRow.name} readOnly />
+                    <label className="form-label">NAME</label>
+                  </div>
+                </div>
               </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.name} readOnly />
-                <label className="form-label">NAME</label>
+              <div className='row d-flex'>
+                <div className='col-lg-6'>
+                  <div className="form-group my-3">
+                    <input type="text" className="form-control" value={selectedRow.brNumber} readOnly />
+                    <label className="form-label">BR NUMBER</label>
+                  </div>
+                </div>
+                <div className='col-lg-6'>
+                  <div className="form-group my-3">
+                    <input type="text" className="form-control" value={selectedRow.phone} readOnly />
+                    <label className="form-label">PHONE</label>
+                  </div>
+                </div>
               </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.brNumber} readOnly />
-                <label className="form-label">BR NUMBER</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.phone} readOnly />
-                <label className="form-label">PHONE</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.email} readOnly />
-                <label className="form-label">EMAIL</label>
-              </div>
-              <div className="form-group my-5">
-                <input type="text" className="form-control" value={selectedRow.status} readOnly />
-                <label className="form-label">STATUS</label>
+              
+              <div className='row d-flex'>
+                <div className='col-lg-6'>
+                  <div className="form-group my-5">
+                    <input type="text" className="form-control" value={selectedRow.email} readOnly />
+                    <label className="form-label">EMAIL</label>
+                  </div>
+                </div>
+                <div className='col-lg-6'>
+                  <div className="form-group my-5">
+                    <input type="text" className="form-control" value={selectedRow.status} readOnly />
+                    <label className="form-label">STATUS</label>
+                  </div>
+                </div>
               </div>
               <div className="form-group my-5 d-flex justify-content-center">
                 <button type="button" className="btn btn-success mx-2" onClick={handleApproveClick}>Approve</button>
